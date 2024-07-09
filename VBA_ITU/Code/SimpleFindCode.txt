@@ -1,0 +1,35 @@
+Sub SimpleFind()
+'
+' SimpleFind Macro
+'
+'
+    CommandBars("Navigation").Visible = False
+    Selection.Find.ClearFormatting
+    With Selection.Find
+        .Text = "Practice Questions"
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute
+    Selection.MoveRight Unit:=wdCharacter, Count:=3
+    Selection.TypeText Text:="Ha"
+    Selection.TypeParagraph
+    Selection.TypeParagraph
+    Selection.TypeText Text:="a"
+    Selection.MoveRight Unit:=wdCharacter, Count:=2
+    Selection.TypeText Text:="s"
+    Selection.MoveLeft Unit:=wdCharacter, Count:=1, Extend:=wdExtend
+    Selection.Copy
+    Selection.MoveRight Unit:=wdCharacter, Count:=1
+    Selection.TypeParagraph
+    Selection.PasteAndFormat (wdFormatOriginalFormatting)
+    Selection.TypeParagraph
+    Selection.PasteAndFormat (wdFormatOriginalFormatting)
+End Sub

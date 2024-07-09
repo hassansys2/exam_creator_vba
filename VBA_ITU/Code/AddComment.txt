@@ -1,0 +1,23 @@
+Sub AddComment()
+'
+' AddComment
+'
+'
+    'Add a New Comment in Active Document
+    'ActiveDocument.Comments.Add Range:=Selection.Range, Text:="This is New Comment 4"
+    
+    Dim CountN As Integer
+    Dim i As Integer
+    CountN = 0
+    CountN = ActiveDocument.Comments.Count
+    'CountN = Selection.Comments.Count
+    'MsgBox ("Comments " & CountN)
+    
+    i = 0
+    
+    Do While i < CountN
+        i = i + 1
+        MsgBox ("Comments #" & i & " : " & ActiveDocument.Comments.Item(i).Range.Text)
+    Loop
+    
+End Sub
